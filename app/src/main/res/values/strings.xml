@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">http-client</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello">Hello WeIoT</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="userName">User Name</string>
+    <string name="email">e-mail</string>
+    <string name="password">Password</string>
+</resources>
