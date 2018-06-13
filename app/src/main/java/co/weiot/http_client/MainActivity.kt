@@ -1,12 +1,14 @@
 package co.weiot.http_client
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import com.android.volley.Request
@@ -17,8 +19,13 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.net.URLEncoder
+import android.provider.AlarmClock.EXTRA_MESSAGE
+import android.view.Display
+
 
 class MainActivity : AppCompatActivity() {
+
+    private val EXTRA_MESSAGE = "co.weiot.http_client.MESSAGE"
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -120,9 +127,15 @@ class MainActivity : AppCompatActivity() {
         //HTTP POST request for sign up
         ////////////////////////////////////////////////////////////////////////////////////////////
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show()
             queue.add(jsonPOSTRequest) // Add request to queue
+
+            val intent = Intent(this, LoginActivity::class.java)
+            // val editText = findViewById<View>(R.id.editText) as EditText
+            val message = "Hola Mundo!"
+            intent.putExtra(EXTRA_MESSAGE, message)
+            startActivity(intent)
         }
     }
 
